@@ -1,0 +1,27 @@
+{
+  "name": "marketplace-sei",
+  "version": "1.0.0",
+  "description": "Marketplace con subastas en Sei Network",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network seiTestnet",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network seiMainnet",
+    "verify": "hardhat verify",
+    "clean": "hardhat clean"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0",
+    "dotenv": "^16.3.1"
+  },
+  "keywords": [
+    "blockchain",
+    "sei",
+    "marketplace",
+    "auction",
+    "smart-contracts"
+  ],
+  "author": "",
+  "license": "MIT"
+}

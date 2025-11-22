@@ -182,10 +182,10 @@ class _SummaryHeader extends SliverPersistentHeaderDelegate {
   final Listing listing;
 
   @override
-  double get minExtent => 170;
+  double get minExtent => 200;
 
   @override
-  double get maxExtent => 180;
+  double get maxExtent => 220;
 
   @override
   Widget build(
@@ -369,17 +369,24 @@ class _CountdownBadge extends StatefulWidget {
   State<_CountdownBadge> createState() => _CountdownBadgeState();
 }
 
-class _CountdownBadgeState extends State<_CountdownBadge> {
+class _CountdownBadgeState extends State<_CountdownBadge>
+    with SingleTickerProviderStateMixin {
   late DateTime _deadline;
   late Duration _remaining;
-  late final Ticker _ticker;
+  late final AnimationController _ticker;
 
   @override
   void initState() {
     super.initState();
     _deadline = DateTime.now().add(Duration(hours: widget.deadlineHoursFromNow));
     _remaining = _deadline.difference(DateTime.now());
-    _ticker = Ticker(_onTick)..start();
+    _ticker = AnimationController(
+      vsync: this,
+      duration: const Duration(hours: 1),
+    )..addListener(() {
+        _onTick(_ticker.lastElapsedDuration ?? Duration.zero);
+      });
+    _ticker.repeat();
   }
 
   void _onTick(Duration elapsed) {
@@ -427,19 +434,31 @@ class _CountdownBadgeState extends State<_CountdownBadge> {
     final bg = isCritical ? Colors.red.shade50 : Colors.grey.shade200;
     final fg = isCritical ? Colors.red : Colors.grey[800];
 
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: bg,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: fg,
-          fontWeight: FontWeight.w700,
+    return Row(
+      children: [
+        Text(
+          'Se cierra en:',
+          style: TextStyle(
+            color: Colors.grey[700],
+            fontWeight: FontWeight.w600,
+          ),
         ),
-      ),
+        const SizedBox(width: 6),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          decoration: BoxDecoration(
+            color: bg,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Text(
+            text,
+            style: TextStyle(
+              color: fg,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

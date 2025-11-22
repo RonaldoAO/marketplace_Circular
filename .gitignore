@@ -43,3 +43,74 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# ========================================
+# BLOCKCHAIN / SEI NETWORK
+# ========================================
+
+# Node modules y dependencias
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Variables de entorno - NUNCA SUBIR
+.env
+.env.local
+.env.*.local
+*.env
+.secret
+
+# Claves privadas - CRÍTICO NO SUBIR
+*.key
+*.pem
+private-keys/
+secrets/
+mnemonic.txt
+keystore/
+*.keystore
+*.jks
+
+# Hardhat
+cache/
+artifacts/
+typechain/
+typechain-types/
+hardhat.config.js
+hardhat.config.ts
+coverage/
+coverage.json
+
+# Deployments
+deployments/
+deployment-*.json
+.openzeppelin/
+
+# Testing
+.hypothesis/
+.pytest_cache/
+
+# Auditoría
+.slither/
+slither.db.json
+.mythril/
+
+# Logs de blockchain
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Firebase
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~

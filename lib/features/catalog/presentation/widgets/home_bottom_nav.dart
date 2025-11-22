@@ -23,7 +23,7 @@ class HomeBottomNav extends StatelessWidget {
       _BottomItem(
         icon: Icons.file_copy_outlined,
         activeIcon: Icons.file_copy_rounded,
-        label: 'Requests',
+        label: 'Ofertas',
       ),
       _BottomItem(
         icon: Icons.chat_bubble_outline_rounded,
