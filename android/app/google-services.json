@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170107962344",
+    "project_id": "rava-fc1eb",
+    "storage_bucket": "rava-fc1eb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170107962344:android:6b9dc39b6b370f9d209a5d",
+        "android_client_info": {
+          "package_name": "com.example.marketplace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_aqqjC-dQJDWm4I4kfV9wsHZT05euOlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
